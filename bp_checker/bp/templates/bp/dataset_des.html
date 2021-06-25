@@ -1,0 +1,45 @@
+<!--Inherit base template-->
+{% extends 'bp/base_bp.html' %} 
+
+{% block content %}
+
+{% include './bp_includes/nav.html' %} 
+
+
+<section class="page-section" id="services">
+  <div class="container">
+    <div class="text-center">
+      <h3 class="section-heading text-uppercase">
+        Blood Pressure Dataset
+      </h3>
+      <h3 class="section-subheading text-muted">
+       Data set description.
+      </h3>
+    </div>
+    <div class="row text-center">
+      <div class="col-md-2"> </div>
+
+      <div class="col-md-8">
+        <div id="info">
+        <p>The data set used in this project was gotten from Kaggle.com. It contains the following 
+        attributes:</p>
+        <div class="text-left">
+          <div><span class="font-weight-bold">Education:</span> The values are 1 (primary) , 2 (secondary), 3 (graduate) , 4 (master)</div>
+          <div><span class="font-weight-bold">Age:</span> The value of the age is integer</div>
+          <div><span class="font-weight-bold">Body Mass Index:</span> It is the division of weight by height.</div>
+          <div><span class="font-weight-bold">Curent Smoker:</span> The value of current smoker is 0 (No) and 1 (Yes)</div>
+          <div><span class="font-weight-bold">Heart Rate:</span> The current heart rate.</div>
+           
+        </div>
+            
+        </div>
+      </div>
+
+      <div class="col-md-2"></div>
+    </div>
+  </div>
+</section>
+
+{% include 'include_folder/footer.html' %} 
+
+{% endblock %}

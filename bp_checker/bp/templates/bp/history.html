@@ -1,0 +1,57 @@
+{% extends 'bp/base_bp.html' %} 
+{% load static%}
+
+
+
+{% block title %}
+    Home page {{block.super}}
+{% endblock  %}
+
+{% block content %}
+{% include './bp_includes/nav.html' %} 
+
+<div class="jumbotron" id="bg_result">
+
+    <div class="container pb-4"><h2 id="reg-title" class="text-white"><u>History</u></h2></div>
+        
+        <div class="container text-center">
+
+                    <table class="table responsive table-bordered ">
+                        <thead>
+                            <tr class="bg-info">
+                                <th scope="col">Education</th>
+                                <th scope="col">Age</th>
+                                <th scope="col">BMI</th>
+                                <th scope="col">Current Smoker</th>
+                                <th scope="col">Heart Rate</th>
+                                <th scope="col">Prediction Result</th>
+                                <th scope="col">Action  </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {% if history %}
+
+                            {% for h in history %}
+                            
+                            <tr class="text-white font-weight-bold">
+                                <td>{{h.education}}</td>
+                                <td>{{h.age}}</td>
+                                <td>{{h.bmi}}</td>
+                                <td>{{h.current_smoker}}</td>  
+                                <td>{{h.heart_rate}}</td>
+                                <td>{{h.result}}</td>
+                                <td><a href="{% url 'delete_history' id=h.id %}"><button class="btn btn-danger">Clear history</button></a></td>                   
+                            </tr>
+                            {% endfor %}
+                            
+                        {% endif %}
+                        </tbody>
+                    </table>
+                    
+        </div>
+    </div>
+</div>
+
+
+{% include 'include_folder/footer.html' %}
+{% endblock%}

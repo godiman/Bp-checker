@@ -1,0 +1,60 @@
+<!--Inherit base template-->
+{% extends 'bp/base_bp.html' %} 
+
+{% block content %}
+
+{% include './bp_includes/nav.html' %} 
+
+<div class="row pt-4">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+      <div class="alert alert-success text-center font-weight-bold">Welcome back  <span class="text-uppercase">{{user.first_name}}</span>. <a href="{% url 'dataset_desc' %}" class="text-info">Click here to read user's guide.</a></div>
+    </div>
+    <div class="col-md-3"></div>
+</div>
+<section class="page-section" id="services">
+  <div class="container">
+    <div class="text-center">
+      <h3 class="section-heading text-uppercase">
+        High Blood Pressure Control
+      </h3>
+      <h3 class="section-subheading text-muted">
+        High blood pressure is also known as Hypertension.
+      </h3>
+    </div>
+    <div class="row text-center">
+      <div class="col-md-4">
+       <div id="info">
+         <span class="fa-stack fa-4x">
+          <i class="fas fa-circle fa-stack-2x text-info">Data set</i>
+        </span>
+        <div><a href="{% url 'dataset_desc' %}" class="btn btn-outline-info my-3">Data Set</a></div>
+       </div>
+      </div>
+
+      <div class="col-md-4">
+        <div id="info">
+          <span class="fa-stack fa-4x">
+          <i class="fas fa-circle fa-stack-2x text-warning"></i>
+          <i class="fas fa-heartbeat fa-stack-1x fa-inverse"></i>
+          </span>
+          <div><a href="{% url 'prediction'  %}" class="btn btn-warning my-3">Check Bp</a></div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div id="info">
+          <span class="fa-stack fa-4x">
+            <i class="fas fa-circle fa-stack-2x text-info"></i>
+            <i class="fas fa-user-check fa-stack-1x fa-inverse"></i>      
+          </span>
+         <div><a href="{% url 'history'%}" class="btn btn-outline-info my-3">History</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% include 'include_folder/footer.html' %} 
+
+{% endblock %}

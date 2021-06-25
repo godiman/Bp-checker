@@ -1,0 +1,38 @@
+<!--Inherit base template-->
+{% extends 'bp/base_bp.html' %} {% block title %} Check Blood Pressure
+{{block.super}} {%endblock%} 
+
+{% block content %} 
+
+<script type="text/javascript">
+  setTimeout(function () {
+    location.reload();
+    //window.location.href = "{% url 'pred_result' %}";
+  }, 10 * 1000)
+</script>
+
+{% include './bp_includes/nav.html' %}
+<div class="jumbotron" id="p_form">
+<div class="row">
+ 
+ <div class="col-md-3"></div>
+  <div class="col-md-6" >
+        <h2 id="reg-title" class="text-white">Check Bp</h2>
+        <div class="pred_inner">
+            <form method="POST" action="{% url 'pred_result' %}" class="">
+            {% csrf_token %}
+            <div class="form-group">{{predict_form.as_p}}</div>
+            <div class="text-center">
+                <div id="success" ></div>
+                <button
+                id="register" class="btn btn-outline-info text-uppercase" type="submit">Check Bp</button>
+            </div>
+            </form>
+          </div>
+  </div>
+
+    <div class="col-md-3"></div>
+  </div>
+</div>
+
+{% include 'include_folder/footer.html' %} {% endblock %}

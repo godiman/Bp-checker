@@ -1,0 +1,42 @@
+<!--Inherit base template-->
+{% extends 'base.html' %}
+
+{% block title %} 
+    Login page {{block.super}}
+{% endblock  %}
+
+
+{% block content %}
+
+<div id="form-div">
+    <div class="row">
+        <div class="col-md-4"></div>
+
+        <div class=" col-md-4">
+            <div id="form-container">
+             <h2 id="reg-title">Login</h2>
+                <form  method="POST" action=""> 
+                    {% csrf_token %}
+
+                    <div class="form-group">
+                        {{form.as_p}}
+                    </div>
+                                                    
+                    <div class="text-center">
+                        <div id="success"></div>
+                        <button id = "register" class="btn btn-outline-info  text-uppercase" type="submit">Login</button>
+                    </div>
+                    <div class="mt-4">
+                        <p>Don't have an account?<a href="{%url 'register'%}" class="pl-4 text-danger">Register here</a> 
+                            <a href="{%url 'index_url'%}" class="pl-4 text-danger">
+                            <span class="fa fa-home"></span></a>
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="col-md-4"></div>
+    </div>
+</div>
+{% endblock %}

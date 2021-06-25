@@ -1,0 +1,130 @@
+{% extends 'base.html' %}
+
+{% load static%}
+
+
+
+{% block title %}
+    Home page {{block.super}}
+{% endblock  %}
+
+{% block content %}
+{% include 'include_folder/navbar.html' %}
+    <!-- Masthead-->
+    <header class="masthead">
+        <div class="container">
+            <div class="masthead-heading text-white">High Blood Pressure Control System</div>
+            <div class="masthead-subheading">AE-FUNAI</div>
+            <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="{% url 'login'  %}">Check Your Bp</a>
+        </div>
+    </header>
+    
+    <!-- Services-->
+        <section class="page-section" id="services">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">High Blood Pressure Control</h2>
+                    <h3 class="section-subheading text-muted">High blood pressure is also known as Hypertension.</h3>
+                </div>
+                <div class="row text-center">
+                    <div class="col-md-4">
+                        <span class="fa-stack fa-4x">
+                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                            <i class="fas fa-pen-alt fa-stack-1x fa-inverse"></i>
+                        </span>
+                        <h4 class="my-3">Hypertension-WHO</h4>
+                        <p class="text-muted">Hypertension, also known as high or raised 
+                        blood pressure, is a condition in which the blood vessels have persistently raised pressure.</p>
+                    </div>
+                    <div class="col-md-4">
+                        <span class="fa-stack fa-4x">
+                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                            <i class="fas fa-hospital-symbol fa-stack-1x fa-inverse"></i>
+                        </span>
+                        <h4 class="my-3">Symptoms of hypertension</h4>
+                        <p class="text-muted">Many people with hypertension do not notice symptoms and may be unaware there is a problem. Symptoms can include early 
+                        morning headaches, nosebleeds, irregular heart rhythms, vision changes, and buzzing in the ears.</p>
+                    </div>
+                    <div class="col-md-4">
+                        <span class="fa-stack fa-4x">
+                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                            <i class="fas fa-first-aid fa-stack-1x fa-inverse"></i>
+                        </span>
+                        <h4 class="my-3">Treatment</h4>
+                        <p class="text-muted">Hypertension can be managed by reducing and managing mental stress and regularly checking blood pressure.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+         <!-- About-->
+        <section class="page-section" id="about">
+            <div class="container">
+                <div class="text-center">
+                    <h3 class="section-heading text-uppercase">About Bp Checker</h2>
+                </div>
+                <ul class="timeline">
+                    <li>
+                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="{% static 'img/about/1.jpg' %}" alt="" /></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                            </div>
+                            <div class="timeline-body"><p class="text-muted">This software aimed to synchronize artificial intelligence 
+                        system with a simulator to predict high blood pressure at real time.</p></div>
+                        </div>
+                    </li>
+                  
+                    <li class="timeline-inverted">
+                        <div class="timeline-image">
+                            <h4>
+                                Message
+                                <br />
+                                Us!
+                                
+                            </h4>
+                        </div>
+                    </li>
+                    <li class="timeline-inverted"></li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Contact-->
+        <section class="page-section" id="contact">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase text-muted">Contact Us</h2>
+                    <h3 class="section-subheading text-muted">Feel free to say hi!</h3>
+                </div>
+                <form id="contactForm" method="POST" action="" >
+                    <div class="row align-items-stretch mb-5">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input class="form-control" name="name" type="text" placeholder="Your Name *" required="required" />
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" name="email" type="email" placeholder="Your Email *" required="required" />
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div class="form-group mb-md-0">
+                                <input class="form-control" name="phone" type="tel" placeholder="Your Phone *" required="required" />
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group form-group-textarea mb-md-0">
+                                <textarea class="form-control" name="message" placeholder="Your Message *" required="required"></textarea>
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <div id="success"></div>
+                        <button class="btn btn-primary btn-xl text-uppercase" type="button">Send Message</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+{% include 'include_folder/footer.html' %}
+{% endblock%}

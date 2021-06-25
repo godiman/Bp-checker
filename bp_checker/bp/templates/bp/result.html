@@ -1,0 +1,62 @@
+<!--Inherit base template-->
+{% extends 'bp/base_bp.html' %} {% block title %} Check Blood Pressure
+{{block.super}} {%endblock%} 
+
+{% block content %} 
+
+{% include './bp_includes/nav.html' %}
+<div class="jumbotron" id="bg_result">
+
+    <div class="container pb-4"><h2 id="reg-title" class="text-white">Bp Result</h2></div>
+    <div class="row">
+        <div class="col-md-6 text-center  pb-4">
+            
+                {% if  prediction < 1 %}
+                    <div class="alert alert-info">Your blood pressure is normal.</div>
+                {% else %}
+                    <div class="alert alert-danger" id="high">Your blood pressure is high.</div>
+                {% endif %}
+
+                    <table class="table table-bordered text-white">
+                        <thead>
+                            <tr class="bg-info">
+                                <th scope="col">Lable</th>
+                                <th scope="col">Values</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Education</td>
+                                <td>{{user_input.education}}</td>                     
+                            </tr>
+                            <tr>
+                                <td>Age</td>
+                                <td>{{user_input.age}}</td>
+                            </tr>
+                            <tr>
+                                <td>Body Index Mass</td>
+                                <td>{{user_input.bmi}}</td>
+                            </tr>
+                            <tr>
+                                <td>Current Smoker</td>
+                                <td>{{user_input.c_smoker}}</td>
+                            </tr>
+                            <tr>
+                                <td>Heart Rate</td>
+                                <td>{{user_input.heart_rate}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <a href="{% url 'user_dashboard'%}"><button class="btn btn-info btn-block">Back to Dashboard</button></a>
+        </div>
+
+        <div class="col-md-6">
+            <div id="pred-bg" class="container">
+                {{graph|safe}}
+            </div>      
+        </div>
+        
+    </div>
+</div>
+
+{% include 'include_folder/footer.html' %} {% endblock %}

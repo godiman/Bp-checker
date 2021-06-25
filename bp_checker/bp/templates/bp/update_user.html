@@ -1,0 +1,31 @@
+<!--Inherit base template-->
+{% extends 'bp/base_bp.html' %} {% block title %} Check Blood Pressure
+{{block.super}} {%endblock%} 
+
+{% block content %} 
+
+{% include './bp_includes/nav.html' %}
+<div class="jumbotron">
+<div class="row">
+ 
+ <div class="col-md-3"></div>
+  <div class="col-md-6 text-center pt-4 pb-4">
+        <h2 id="reg-title">Check Your Bp</h2>
+        <div class="pred_inner">
+            <form method="POST" action="">
+            {% csrf_token %}
+            <div class="form-group">{{predict_form.as_p}}</div>
+            <div class="text-center">
+                <div id="success" ></div>
+                <button
+                id="register" class="btn btn-outline-info text-uppercase" type="submit">Check Bp</button>
+            </div>
+            </form>
+        </div>
+  </div>
+
+    <div class="col-md-3"></div>
+  </div>
+</div>
+
+{% include 'include_folder/footer.html' %} {% endblock %}

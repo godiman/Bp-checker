@@ -1,0 +1,68 @@
+<!--Inherit base template-->
+{% extends 'bp/base_bp.html' %} {% block title %} Check Blood Pressure
+{{block.super}} {%endblock%} 
+
+{% block content %} 
+
+{% include './bp_includes/nav.html' %}
+<div class="jumbotron">
+  <h5 id="prolfile-title">Your Profile </h5> <hr>
+    <div class="row">
+    
+        <div class=" col-md-6">
+            <div id="profile_info">
+             <i class="fa fa-user-circle"></i>
+                <span class="text-uppercase"> {{user.user.username}} </span> <br> 
+                <i class="text-muted bio">Your username</i>   
+            </div> <hr>
+
+            <div id="profile_info">
+            <i class="fa fa-user-tie"></i>
+                <span class="text-uppercase"> {{user.user.first_name}} {{user.user.last_name}}</span><br/>
+                 <i class="text-muted bio">Your full name</i>   
+            </div> <hr>
+
+            <div id="profile_info">
+            <i class="fas fa-envelope-open-text"></i> 
+                <span class="text-lowercase"> {{user.user.email}} </span> <br/>
+                 <i class="text-muted bio">Your email</i>   
+            </div> <hr>
+        </div>
+
+        <div class="col-md-6">
+
+            <div id="profile_info">
+                <i class="fas fa-transgender"></i>
+                    <span class="text-uppercase"> {{user.gender}} </span>  <br/>
+                    <i class="text-muted bio">Your gender</i>     
+            </div><hr>
+
+            <div id="profile_info">
+                <i class="fas fa-phone-volume"></i> 
+                <span class="text-lowercase"> {{user.phone_no}} </span> <br/>
+                <i class="text-muted bio">Your phone number</i>   
+            </div> 
+            <hr>
+
+            <div id="profile_info">   
+    
+                <form method="POST" action="" class="form-inline" >
+                    {% csrf_token %}
+                    <div class="">{{edit.errors}}</div>
+                    <div class="form-group">
+                        {{edit.phone_no}}
+                    </div>
+                    <div class="col">
+                        <button id="btn-save" class="btn btn-outline-info text-uppercase float-right" type="submit">Save</button>
+                    </div>
+                </form>   
+                <i class="text-muted bio">Change your phone number!!</i>  
+            </div><hr>
+            
+        </div>
+    </div>
+    
+ 
+</div>
+
+{% include 'include_folder/footer.html' %} {% endblock %}
